@@ -1,0 +1,46 @@
+[tool.poetry]
+name = "wba-aws-infrastructure"
+version = "0.1.0"
+description = "AWS Infrastructure for Well Baked Analytics"
+authors = ["Alex Antonison <alex@antonison-cg.com>"]
+
+[tool.poetry.dependencies]
+python = "^3.10"
+aws-cdk-lib = "~2.20"
+constructs = "~10.0"
+
+[tool.poetry.dev-dependencies]
+black = "^22.3.0"
+isort = "^5.10.1"
+flake8 = "^4.0.1"
+mypy = "^0.942"
+pytest = "^7.1.1"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
+
+[tool.isort]
+src_paths = ["src", "tests"]
+multi_line_output=3
+include_trailing_comma="True"
+force_grid_wrap=0
+use_parentheses="True"
+line_length=120
+skip=".vscode, .tox, .git"
+default_section="THIRDPARTY"
+sections="FUTURE,STDLIB,THIRDPARTY,FIRSTPARTY,LOCALFOLDER"
+
+[tool.black]
+line-length = 120
+exclude = '''
+/(
+  # Directories
+    \.eggs
+  | \.git
+  | \.vscode
+  | \.tox
+  | build
+  | .*egg-info
+)/
+'''
