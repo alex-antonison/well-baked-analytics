@@ -1,4 +1,5 @@
-from aws_cdk import Stack, aws_s3 as s3, App
+from aws_cdk import App, Stack
+from aws_cdk import aws_s3 as s3
 
 # app resources
 serverless_main_bucket_name = "wba-serverless-main"
