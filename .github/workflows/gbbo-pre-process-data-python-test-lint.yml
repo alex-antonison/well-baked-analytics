@@ -1,0 +1,37 @@
+on:
+  pull_request:
+    paths:
+      - "gbbo-pre-process-data/**"
+
+name: pull_request
+jobs:
+  linting_and_formatting:
+    name: Linting and Formatting
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "~3.8"
+          architecture: "x64"
+      - name: run-ci
+        working-directory: ./gbbo-pre-process-data
+        run: |
+          pip install poetry
+          poetry install
+          make run-ci
+  python_unit_test:
+    name: Python Unit Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: "~3.8"
+          architecture: "x64"
+      - name: run-pytest
+        working-directory: ./gbbo-pre-process-data
+        run: |
+          pip install poetry
+          poetry install
+          make run-pytest
