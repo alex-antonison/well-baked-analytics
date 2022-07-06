@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "wba-prototype"
+version = "0.1.0"
+description = "Protoyping for well baked analytics modules"
+authors = ["Alexander Antonison <adantonison@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "~3.10"
+pandas = "^1.4.2"
+requests = "^2.27.1"
+beautifulsoup4 = "^4.11.1"
+
+[tool.poetry.dev-dependencies]
+black = {extras = ["jupyter"], version = "^22.3.0"}
+jupyter = "^1.0.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
